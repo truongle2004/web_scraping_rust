@@ -12,6 +12,7 @@ targets = ["x86_64-unknown-linux-gnu", "wasm32-unknown-unknown"]
 
 [dependencies]
 egui = "0.32"
+tokio = { version = "1", features = ["full"] }
 eframe = { version = "0.32", default-features = false, features = [
     "accesskit",     # Make egui compatible with screen readers. NOTE: adds a lot of dependencies.
     "default_fonts", # Embed the default egui fonts.
@@ -24,6 +25,9 @@ log = "0.4.27"
 
 # You only need serde if you want app persistence:
 serde = { version = "1.0.219", features = ["derive"] }
+reqwest = { version = "0.12.23", features = ["blocking", "json"] }
+scraper = "0.24.0"
+pyo3 = { version = "0.25.1", features = ["auto-initialize"]}
 
 # native:
 [target.'cfg(not(target_arch = "wasm32"))'.dependencies]
